@@ -10,18 +10,22 @@ function App() {
   const handleShorten = async () => {
     if (!url) return
     try {
-      const response = await fetch('https://url-shortener-backend-3gwn.onrender.com', {
+      const response = await fetch('https://url-shortener-backend-3gwn.onrender.com/api/urls', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           originalUrl: url,
-          shortCode: Math.random().toString(36).substring(7),
+          // Tạo shortCode dài hơn một chút để tránh trùng lặp
+          shortCode: Math.random().toString(36).substring(2, 9),
         }),
       })
 
       if (response.ok) {
         const data = await response.json()
-        setShortenedUrl(`http://localhost:3000/${data.shortCode}`)
+        setShortenedUrl(`https://url-shortener-backend-3gwn.onrender.com/${data.shortCode}`)
+        setUrl('')
+      } else {
+        console.error('Server error during shortening')
       }
     } catch (error) {
       console.error('Failed to connect to Backend:', error)
