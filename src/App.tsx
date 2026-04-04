@@ -10,7 +10,7 @@ function App() {
   const handleShorten = async () => {
     if (!url) return
     try {
-      const response = await fetch('http://localhost:3000/api/urls', {
+      const response = await fetch('https://url-shortener-backend-3gwn.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
