@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Header from './components/Header'
-import UrlInput from './components/UrlForm'
-import ResultModal from './components/ResultModal'
+import Header from './Components/Header'
+import UrlInput from './Components/UrlForm'
+import ResultModal from './Components/ResultModal'
 
 function App() {
   const [url, setUrl] = useState('')
