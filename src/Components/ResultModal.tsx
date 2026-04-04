@@ -39,7 +39,7 @@ const ResultModal = ({ shortenedUrl, onClose, onCopy }: Props) => {
             />
           </div>
 
-          {/* Nút Download */}
+          {/* Download */}
           <button className="absolute -bottom-6 w-12 h-12 rounded-full bg-white text-[#0b2878] flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,8 @@ const ResultModal = ({ shortenedUrl, onClose, onCopy }: Props) => {
           <h3 className="text-2xl font-black text-[#0b2878]">Link shortened!</h3>
 
           <p className="text-center text-gray-400 text-sm mt-2 px-6 font-medium">
-            Access the <span className="text-[#0b2878] font-bold">"My URL"</span> page to view
-            statistics on your shortened links
+            Access the <span className="text-[#0b2878] font-bold">"My URL"</span>
+            page to view statistics on your shortened links
           </p>
 
           <div className="w-full mt-8 flex items-center bg-[#f2f4f6] rounded-xl border border-gray-200 p-1">

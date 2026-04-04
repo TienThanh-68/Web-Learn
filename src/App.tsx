@@ -7,18 +7,37 @@ function App() {
   const [url, setUrl] = useState('')
   const [shortenedUrl, setShortenedUrl] = useState('')
 
-  const handleShorten = () => {
+  const handleShorten = async () => {
     if (!url) return
-    setShortenedUrl(`https://tiny.url/${Math.random().toString(36).substring(7)}`)
-  }
+    try {
+      const response = await fetch('http://localhost:3000/api/urls', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          originalUrl: url,
+          shortCode: Math.random().toString(36).substring(7),
+        }),
+      })
 
-  const handleCopy = () => {
-    if (shortenedUrl) {
-      navigator.clipboard.writeText(shortenedUrl)
-      alert('Copied to clipboard!')
+      if (response.ok) {
+        const data = await response.json()
+        setShortenedUrl(`http://localhost:3000/${data.shortCode}`)
+      }
+    } catch (error) {
+      console.error('Failed to connect to Backend:', error)
     }
   }
 
+  const handleCopy = async () => {
+    if (shortenedUrl) {
+      try {
+        await navigator.clipboard.writeText(shortenedUrl)
+        console.log('Copied to clipboard!')
+      } catch (err) {
+        console.error('Failed to copy: ', err)
+      }
+    }
+  }
   return (
     <main className="min-h-screen bg-white font-sans relative overflow-x-hidden">
       <Header />
