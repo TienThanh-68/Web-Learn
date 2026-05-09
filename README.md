@@ -175,3 +175,34 @@ When opening your PR, fill in the provided template:
 - Naming your PR: `feat: add URL Shortener frontend assignment by <your_email>` (e.g. `feat: add URL Shortener frontend assignment by john_doe@example.com`)
 
 > PRs without a demo video will not be accepted.
+
+
+
+Ý tưởng đột phá cho dự án "SkillLink":
+Để dự án này không chỉ là một cái vỏ giao diện, Thành hãy tích hợp thêm 3 tính năng "ăn tiền" này:
+
+1. Hệ thống "Smart Match" (Cá nhân hóa)
+Logic: Thay vì học viên phải bơi trong hàng nghìn gia sư, Thành code một bộ lọc thông minh dựa trên kỹ năng đang thiếu (kết nối với tư duy CareerGPS của bạn).
+
+Frontend: Sử dụng các Tag Chips (như C++, Verilog, React) để người dùng chọn nhanh.
+
+2. Video Call Integration (Học Online trực tiếp)
+Tính năng: Nút "Mở phòng học" (như trong ảnh bạn gửi) sẽ kích hoạt một phòng họp online.
+
+Tech: Thành có thể tìm hiểu về Jitsi Meet SDK hoặc ZegoCloud (rất dễ nhúng vào React) để làm tính năng gọi video ngay trên web mà không cần dùng Zoom bên ngoài.
+
+3. Real-time Notifications (Thông báo thời gian thực)
+Tính năng: Khi có người nhấn "Chấp nhận" yêu cầu kết nối, gia sư và học viên sẽ nhận được thông báo ngay lập tức.
+
+Tech: Sử dụng Socket.io (Thành có thể tận dụng luôn cái Backend Node.js vừa làm ở bài tập URL Shortener để phát triển lên).
+
+🛠️ Kế hoạch thực hiện trên máy LENOVO cho @TienThanh-68:
+Giai đoạn 1 (Layout): Dùng Vite + React dựng khung Dashboard giống hệt ảnh mẫu. Tập trung vào việc làm cho nó Responsive (chạy tốt cả trên điện thoại).
+
+Giai đoạn 2 (State Management): Dùng useState hoặc Context API để quản lý việc nhấn nút "Chấp nhận/Từ chối" làm thay đổi danh sách yêu cầu.
+
+Giai đoạn 3 (Backend & DB):
+
+MongoDB: Lưu User profile (Gia sư/Học viên) và Lịch dạy (Slots).
+
+Node.js: Viết API để lấy dữ liệu đổ vào các Card.
